@@ -48,6 +48,7 @@ export default function AllDocTable() {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [itemsPerPage, setItemsPerPage] = useState<number>(10);
   const [localSubmitted, setLocalSubmitted] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
   const [categoryDropDownData, setCategoryDropDownData] = useState<
     CategoryDropdownItem[]
   >([]);
@@ -393,6 +394,25 @@ export default function AllDocTable() {
           }, 5000);
         }
         setLocalSubmitted(true);
+      }
+      const processDocResponse = await getWithAuth("process-documents");
+      setIsProcessing(true);
+      if (processDocResponse.status === "success") {
+        setIsProcessing(false);
+        setToastType("success");
+        setToastMessage("Indexing complete");
+        setShowToast(true);
+          setTimeout(() => {
+            setShowToast(false);
+          }, 2000);
+      } else {
+        setIsProcessing(false);
+        setToastType("error");
+        setToastMessage("Fail to index documents");
+        setShowToast(true);
+          setTimeout(() => {
+            setShowToast(false);
+          }, 2000);
       }
     } catch (error) {
       setError("Failed to upload the documents.");
@@ -825,6 +845,11 @@ export default function AllDocTable() {
                 </div>
                   </div>
                 </div>
+                {isProcessing && (
+                <span className="loading-container">
+                    Please wait unitll we index your documents <span className="dots"><span>{'>'}</span><span>{'>'}</span><span>{'>'}</span></span>
+                </span>
+                )}
                 <div className="d-flex flex-row mt-5">
                   <button 
                     disabled={loading || (!apiCallLocalFailed && localSubmitted)}

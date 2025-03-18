@@ -317,8 +317,6 @@ export default function AllDocTable() {
     formData.append("user_end_date_time", collectedData.userEndDate || "");
     formData.append("user_is_downloadable", collectedData.userDownloadable);
     formData.append("user", userId || "");
-    formData.append("is_encrypted", collectedData.isEncripted);
-    formData.append("encryption_type", encriptionType);
     formData.append("attribute_data", JSON.stringify(formAttributeData));
     formData.append("expiration_date", collectedData.expireDate || "");
 
@@ -980,50 +978,7 @@ export default function AllDocTable() {
                   </div>
                 </div>
               </div>
-              <div className="d-flex flex-column flex-lg-row w-100">
-                <div className="col-12 col-lg-6 d-flex flex-column justify-content-center">
-                  <label className="d-flex flex-row mt-3">
-                    <Checkbox
-                      checked={isEncripted}
-                      onChange={() => setIsEncripted(!isEncripted)}
-                      className="me-2"
-                    >
-                      <p
-                        className="mb-0 text-start w-100"
-                        style={{ fontSize: "14px" }}
-                      >
-                        Need Encryption
-                      </p>
-
-                    </Checkbox>
-                  </label>
-                  <div className="d-flex w-100 flex-column justify-content-center align-items-start p-1 mt-2">
-                    {isEncripted && (
-                      <div className="d-flex flex-column w-100 pt-2">
-                        <p
-                          className="mb-1 text-start w-100"
-                          style={{ fontSize: "14px" }}
-                        >
-                          Encryption Type
-                        </p>
-                        <DropdownButton
-                          id="dropdown-category-button"
-                          title={encriptionType}
-                          className="custom-dropdown-text-start text-start w-100"
-                          onSelect={(value) => setEncriptionType(value || "")}
-                        >
-                          <Dropdown.Item eventKey="128bit">
-                            128bit
-                          </Dropdown.Item>
-                          <Dropdown.Item eventKey="256bit">
-                            256bit
-                          </Dropdown.Item>
-                        </DropdownButton>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
+              
             </div>
           </div>
 
