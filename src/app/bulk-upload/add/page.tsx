@@ -395,8 +395,8 @@ export default function AllDocTable() {
         }
         setLocalSubmitted(true);
       }
-      const processDocResponse = await getWithAuth("process-documents");
       setIsProcessing(true);
+      const processDocResponse = await getWithAuth("process-documents");
       if (processDocResponse.status === "success") {
         setIsProcessing(false);
         setToastType("success");
@@ -847,7 +847,7 @@ export default function AllDocTable() {
                 </div>
                 {isProcessing && (
                 <span className="loading-container">
-                    Please wait unitll we index your documents <span className="dots"><span>{'>'}</span><span>{'>'}</span><span>{'>'}</span></span>
+                    Please wait unitll we process your documents <span className="dots"><span>{'>'}</span><span>{'>'}</span><span>{'>'}</span></span>
                 </span>
                 )}
                 <div className="d-flex flex-row mt-5">
