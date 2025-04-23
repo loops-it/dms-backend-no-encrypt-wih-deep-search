@@ -1595,6 +1595,7 @@ export default function AllDocTable() {
     setIsLoadingTable(true)
     try {
       const response = await postWithAuth("deep-search", formData);
+      console.log(response);
       setDummyData(response);
       // fetchDocumentsData(response);
       setIsLoadingTable(false)
