@@ -5,7 +5,7 @@ export const API_BASE_URL =
   // process.env.NEXT_PUBLIC_API_BASE_URL ||
   // "https://sites.techvoice.lk/dms-backend-v2/api/";
   process.env.NEXT_PUBLIC_API_BASE_URL ||
-  "https://13.213.200.16/dms-backend/api/";
+  "http://13.213.200.16/dms-backend/api/";
     
   export const handleView = async (id: number,userId: any) => {
     try {
