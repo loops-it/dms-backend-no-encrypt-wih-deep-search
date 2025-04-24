@@ -611,6 +611,7 @@ export default function AllDocTable() {
 
 
   const handleFilterChange = (e: { target: { value: React.SetStateAction<string>; }; }) => {
+    console.log("e.target.value : ", e.target.value)
     setFilterValue(e.target.value);
 
   };
@@ -4158,8 +4159,8 @@ export default function AllDocTable() {
                   type="text"
                   className="form-control"
                   id="subject"
-                  // value={filterValue}
-                  onChange={() => handleFilterChange}
+                  value={filterValue}
+                  onChange={ handleFilterChange}
                   required
                 />
               </div>
