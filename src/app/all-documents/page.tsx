@@ -4158,7 +4158,7 @@ export default function AllDocTable() {
                   type="text"
                   className="form-control"
                   id="subject"
-                  value={filterValue}
+                  // value={filterValue}
                   onChange={() => handleFilterChange}
                   required
                 />
