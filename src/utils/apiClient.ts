@@ -6,7 +6,7 @@ export const API_BASE_URL =
   // process.env.NEXT_PUBLIC_API_BASE_URL ||
   // "https://sites.techvoice.lk/dms-backend-v2/api/";
   process.env.NEXT_PUBLIC_API_BASE_URL ||
-  "http://13.213.200.16/dms-backend/api/";
+  "https://dms.genaitech.dev/api/";
 
 if (!API_BASE_URL) {
   throw new Error("API base URL is not defined in environment variables.");
