@@ -246,7 +246,9 @@ export default function AllDocTable() {
   }
   const validate = () => {
     const validationErrors: any = {};
-
+    if (!selectedSectorId) {
+      validationErrors.selectedSectorId = "Name is required.";
+    }
     if (!name) {
       validationErrors.name = "Name is required.";
     }
@@ -339,7 +341,7 @@ export default function AllDocTable() {
         }, 2000);
         window.location.href = "/all-documents";
       } else {
-        // console.log("Form submitted failed:", response);
+         console.log("Form submitted failed:", response);
         setToastType("error");
         setToastMessage("Failed to add the document.");
         setShowToast(true);
@@ -950,7 +952,7 @@ export default function AllDocTable() {
                             </React.Fragment>
                           ))}
                       </DropdownButton>
-
+                      {errors.selectedSectorId && <div style={{ color: "red" }}>{errors.selectedSectorId}</div>}
                     </div>
                   </div>
                 </div>
