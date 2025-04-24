@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['localhost', 'sites.techvoice.lk', '13.213.200.16'],
+    domains: ['localhost', 'sites.techvoice.lk', 'dms.genaitech.dev'],
     remotePatterns: [
       {
         protocol: 'https',
@@ -10,7 +10,7 @@ const nextConfig = {
       },
       {
         protocol: 'http',
-        hostname: '13.213.200.16',
+        hostname: 'dms.genaitech.dev',
         pathname: '/dms-backend/uploads/**',
       },
     ],
