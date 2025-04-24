@@ -247,7 +247,7 @@ export default function AllDocTable() {
   const validate = () => {
     const validationErrors: any = {};
     if (!selectedSectorId) {
-      validationErrors.selectedSectorId = "Name is required.";
+      validationErrors.selectedSectorId = "Sector is required.";
     }
     if (!name) {
       validationErrors.name = "Name is required.";
